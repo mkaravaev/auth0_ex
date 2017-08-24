@@ -4,7 +4,7 @@ defmodule Auth0Ex.Utils do
   """
   alias Auth0Ex.TokenState
 
-  def base_url, do: "https://#{domain()}.auth0.com/"
+  def base_url, do: get_config(:base_url) || "https://#{domain()}.auth0.com/"
   def base_url(:mgmt), do: "#{base_url()}api/v2/"
   def base_url(_), do: base_url()
   def oauth_url, do: "https://#{domain()}.auth0.com/oauth/token"
